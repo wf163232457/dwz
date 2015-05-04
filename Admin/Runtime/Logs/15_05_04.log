@@ -1,0 +1,70 @@
+[ 2015-05-04T09:40:21+08:00 ] 0.0.0.0 /dwz_thinkphp/Admin/index.php/Index/index.html
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.031787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031916s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001234s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001094s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000915s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001159s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004695s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001354s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001446s ]
+
+[ 2015-05-04T09:40:21+08:00 ] 0.0.0.0 /dwz_thinkphp/Admin/index.php/Index/index.html
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010971s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011043s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000779s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000754s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000613s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000706s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002971s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000791s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000831s ]
+
+[ 2015-05-04T09:48:12+08:00 ] 0.0.0.0 /dwz_thinkphp/Admin/index.php/Index/index.html
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.007738s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007788s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000415s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000351s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000404s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000473s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001769s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000491s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000528s ]
+
+[ 2015-05-04T09:50:28+08:00 ] 0.0.0.0 /dwz_thinkphp/Admin/index.php/Node/index/?_=1430704228476
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000539s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000587s ]
+SQL: SHOW COLUMNS FROM `group` [ RunTime:0.008228s ]
+SQL: SELECT `id`,`title` FROM `group` WHERE ( status=1 )  [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.002881s ]
+NOTIC: [8] Undefined index: pid E:\xampp\htdocs\dwz_thinkphp\Admin\Lib\Action\NodeAction.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `node` [ RunTime:0.002611s ]
+SQL: SELECT * FROM `node` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `node` WHERE ( `pid` = 0 ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SELECT * FROM `node` WHERE ( `pid` = 0 ) ORDER BY `id` desc LIMIT 0,20   [ RunTime:0.000559s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: _order E:\xampp\htdocs\dwz_thinkphp\Admin\Runtime\Cache\fc73575304ffe6a06a61dd52ee406a2c.php 第 3 行.
+NOTIC: [8] Undefined index: _sort E:\xampp\htdocs\dwz_thinkphp\Admin\Runtime\Cache\fc73575304ffe6a06a61dd52ee406a2c.php 第 4 行.
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' E:\xampp\htdocs\dwz_thinkphp\Admin\Common\common.php 第 70 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013184s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013246s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000450s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000414s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000357s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000633s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001971s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000746s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000792s ]
+
