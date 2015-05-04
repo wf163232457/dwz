@@ -332,4 +332,13 @@ function moduleAccess($moduleName) {
 
     return false;
 }
+
+
+/*
+ * wangfei
+ */
+function ajaxReturn($data,$suc = false){
+	header('Content-Type:text/html; charset=utf-8'); //zhanghuihua
+	exit(json_encode(array('data'=>$data,'ERR'=>$suc?false:true)));
+}
 ?>

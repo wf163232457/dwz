@@ -166,11 +166,11 @@ class PublicAction extends Action {
 	// 登录检测
 	public function checkLogin() {
 		if(empty($_POST['account'])) {
-			$this->error('帐号错误！');
+			ajaxReturn(L('account_must'));
 		}elseif (empty($_POST['password'])){
-			$this->error('密码必须！');
+			ajaxReturn(L('password_must'));
 		}elseif (empty($_POST['verify'])){
-			$this->error('验证码必须！');
+			ajaxReturn(L('verify_must'));
 		}
         //生成认证条件
         $map            =   array();
@@ -178,16 +178,16 @@ class PublicAction extends Action {
 		$map['account']	= $_POST['account'];
         $map["status"]	=	array('gt',0);
 		if($_SESSION['verify'] != md5($_POST['verify'])) {
-			$this->error('验证码错误！');
+			ajaxReturn(L('verify_error'));
 		}
 		import ( '@.ORG.Util.RBAC' );
         $authInfo = RBAC::authenticate($map);
         //使用用户名、密码和状态的方式进行认证
         if(false === $authInfo) {
-            $this->error('帐号不存在或已禁用！');
+            ajaxReturn(L('account_error'));
         }else {
             if($authInfo['password'] != md5($_POST['password'])) {
-            	$this->error('密码错误！');
+            	 ajaxReturn(L('password_error'));
             }
             $_SESSION[C('USER_AUTH_KEY')]	=	$authInfo['id'];
             $_SESSION['email']	=	$authInfo['email'];
@@ -210,7 +210,7 @@ class PublicAction extends Action {
 
 			// 缓存访问权限
             RBAC::saveAccessList();
-			$this->success('登录成功！');
+			ajaxReturn(L('login_success'),true);
 
 		}
 	}

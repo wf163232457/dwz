@@ -30,11 +30,13 @@ body { margin:0; text-align:center; background:#FFF url(../default/images/login_
 .loginForm { display:block; width:240px; padding:40px 20px 0 20px; position:absolute; right:40px;}
 .loginForm p { margin:10px 0;}
 .loginForm label { float:left; width:60px; padding:0 0 0 10px; line-height:25px; color:#4c4c4c; font-size:14px;}
-.loginForm input { padding:3px 2px; border-style:solid; border-width:1px; border-color:#80a5c4;}
+.loginForm input { padding:3px 2px; border-style:solid; border-width:1px; border-color:#80a5c4;width:150px;}
 .loginForm .login_input {}
-.loginForm .code { float:left; margin-right:5px;}
+.loginForm .code { float:left; margin-right:5px;width:60px;}
+#verifyImg{ cursor:pointer;border:0;}
 .login_bar { padding-left:70px;}
-.login_bar .sub { display:block; width:75px; height:30px; border:none; background:url(../default/images/login_sub.png) no-repeat; cursor:pointer;}
+.login_bar .sub { display:block; width:75px; height:30px; border:none; background:url(../default/images/login_sub.png) no-repeat; cursor:pointer;color:#075493;font-weight:bold;font-size:14px;text-align:center;}
+#return_msg{ color:red;}
 
 .login_banner { display:block; height:270px;}
 .login_main { display:block; height:200px; padding-right:40px; background:url(../default/images/login_content_bg.png) no-repeat top;}
