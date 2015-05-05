@@ -40,18 +40,19 @@ class PublicAction extends Action {
         if(isset($_SESSION[C('USER_AUTH_KEY')])) {
             //显示菜单项
             $menu  = array();
-            if(isset($_SESSION['menu'.$_SESSION[C('USER_AUTH_KEY')]])) {
+            //if(isset($_SESSION['menu'.$_SESSION[C('USER_AUTH_KEY')]])) {
 
                 //如果已经缓存，直接读取缓存
                 $menu   =   $_SESSION['menu'.$_SESSION[C('USER_AUTH_KEY')]];
-            }else {
+            //}else {
                 //读取数据库模块列表生成菜单项
                 $node    =   M("Node");
 				$id	=	$node->getField("id");
 				$where['level']=2;
 				$where['status']=1;
-				$where['pid']=$id;
-                $list	=	$node->where($where)->field('id,name,group_id,title')->order('sort asc')->select();
+				//$where['pid']=$id;
+				$where['name']='Admin';
+                $list	=	$node->field('id,name,group_id,title,pid')->order('sort asc')->select();
                 $accessList = $_SESSION['_ACCESS_LIST'];
                 foreach($list as $key=>$module) {
                      if(isset($accessList[strtoupper(APP_NAME)][strtoupper($module['name'])]) || $_SESSION['administrator']) {
@@ -62,7 +63,13 @@ class PublicAction extends Action {
                 }
                 //缓存菜单访问
                 $_SESSION['menu'.$_SESSION[C('USER_AUTH_KEY')]]	=	$menu;
-            }
+            //}
+            //显示分组
+            $group_list = array ();
+            $group = M('group');
+            $group_list = $group->where(array('status'=>'1'))->field('id,name,title,status')->order('sort asc')->select();
+            $this->assign('group_list',$group_list);
+            
             if(!empty($_GET['tag'])){
                 $this->assign('menuTag',$_GET['tag']);
             }
@@ -157,9 +164,9 @@ class PublicAction extends Action {
 			unset($_SESSION);
 			session_destroy();
             $this->assign("jumpUrl",__URL__.'/login/');
-            $this->success('登出成功！');
+            ajaxReturn(L('logout_success'),true);
         }else {
-            $this->error('已经登出！');
+            ajaxReturn(L('logout_error'));
         }
     }
 

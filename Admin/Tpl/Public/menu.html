@@ -1,10 +1,29 @@
 	
 <div class="accordion" fillSpace="sideBar">
+	<volist id="group" name="group_list" >
 	<div class="accordionHeader">
+		<h2><span>Folder</span>{$group.title}</h2>
+	</div>
+	<div class="accordionContent">
+		<ul class="tree treeFolder">
+			<volist id="item" name="menu" >
+			<if condition="$group.id eq $item['group_id']">
+			<neq name="item['name']|strtolower" value="public" >
+			<neq name="item['name']|strtolower" value="index" >
+				<eq name="item['access']" value="1">
+				<li><a href="__APP__/{$item['name']}/index/" target="navTab" rel="{$item['name']}">{$item['title']}</a></li>
+				</eq>
+			</neq>
+			</neq>
+			</if>
+			</volist>
+		</ul>
+	</div>
+	</volist>
+	<!-- <div class="accordionHeader">
 		<h2><span>Folder</span>应用</h2>
 	</div>
 	<div class="accordionContent">
-	
 		<ul class="tree treeFolder">
 			<volist id="item" name="menu" >
 			<neq name="item['name']|strtolower" value="public" >
@@ -15,8 +34,6 @@
 				</neq>
 			</neq>
 			</volist>
-
 		</ul>
-
-	</div>
+	</div> -->
 </div>

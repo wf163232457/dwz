@@ -51,7 +51,7 @@ return array(
     '_NOT_ALLOW_PHP_'       =>  '模板禁用PHP代码',
     '_PARAM_ERROR_'         =>  '参数错误或者未定义',
     //全局
-    'SITENAME'=>'DWZ富客户端框架 - thinkphp3.1.3',
+    'SITENAME'=>'Phantosys',
 	'EMAIL'=>'zhanghuihua@dwzjs.com',
 	'CONTACT'=>'张慧华',
 	'COMPANY'=>'分腾软件',
@@ -64,6 +64,7 @@ return array(
 	'BBSOURL'=>'http://bbs.dwzjs.com',
     // 登录
 	'LOGIN'					=>	'登 录',
+	'LOGOUT'				=>	'注销',
     'ACCOUNT'				=>	'帐号：',
     'PASSWORD'				=>	'密码：',
     'VERIFY'				=>	'验证码：',
@@ -75,4 +76,7 @@ return array(
 	'ACCOUNT_ERROR'        	=>  '帐号不存在或已禁用！',
 	'PASSWORD_ERROR'        =>  '密码错误！',
 	'LOGIN_SUCCESS'	        =>  '登录成功！',
+	'LOGOUT_SUCCESS'        =>  '注销成功！',
+	'LOGOUT_ERROR'     	  	=>  '已经注销！',
+	'LOGOUT_CONFIRM'   	  	=>  '确认注销吗？',
 );

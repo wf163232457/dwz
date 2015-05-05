@@ -12,8 +12,9 @@ class IndexAction extends CommonAction {
 			$id = $node->getField ( "id" );
 			$where ['level'] = 2;
 			$where ['status'] = 1;
-			$where ['pid'] = $id;
-			$list = $node->where ( $where )->field ( 'id,name,group_id,title' )->order ( 'sort asc' )->select ();
+			//$where ['pid'] = $id;
+			$where['name']='Admin';
+			$list = $node->field ( 'id,name,group_id,title,pid' )->order ( 'sort asc' )->select ();
 			$accessList = $_SESSION ['_ACCESS_LIST'];
 			foreach ( $list as $key => $module ) {
 				if (isset ( $accessList [strtoupper ( APP_NAME )] [strtoupper ( $module ['name'] )] ) || $_SESSION ['administrator']) {
@@ -22,6 +23,11 @@ class IndexAction extends CommonAction {
 					$menu [$key] = $module;
 				}
 			}
+			//显示分组
+			$group_list = array ();
+			$group = M('group');
+			$group_list = $group->where(array('status'=>'1'))->field('id,name,title,status')->order('sort asc')->select();
+			$this->assign('group_list',$group_list);
 			
 			if (! empty ( $_GET ['tag'] )) {
 				$this->assign ( 'menuTag', $_GET ['tag'] );

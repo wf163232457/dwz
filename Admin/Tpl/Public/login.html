@@ -18,7 +18,7 @@ function fleshVerify(type){
 }
 function CheckLogin(){
 	$.post('__URL__/checkLogin/',$('[name="login"]').serialize(),function(r){
-		$('#return_msg').html(r.data);
+		$('#return_msg').html('<span style="color:'+(r.ERR?'red':'green')+'">'+r.data+'</span>');
 		if(!r.ERR) window.location.reload();
 	},'json');
 }
@@ -84,7 +84,7 @@ function CheckLogin(){
 		</div>
 	</div>
 	<div id="login_footer">
-		Copyright &copy; 2009 {$Think.lang.COMPANY} Inc. All Rights Reserved.
+		Copyright &copy; 2015 {$Think.lang.COMPANY} Inc. All Rights Reserved.
 	</div>
 </div>
 
