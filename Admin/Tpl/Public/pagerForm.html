@@ -2,6 +2,20 @@
 	<input type="hidden" name="pageNum" value="1"/>
 	<input type="hidden" name="_order" value="{$_REQUEST._order}"/>
 	<input type="hidden" name="_sort" value="{$_REQUEST._sort}"/>
-	<input type="hidden" name="numPerPage" value="${model.numPerPage}" />
-	<input type="hidden" name="orderField" value="${param.orderField}" />
+	<input type="hidden" name="numPerPage" value="{$numPerPage}" />
 </form>
+<script>
+$(function(){
+	var my_pageForm = $('#pagerForm');
+	$('select[name="numPerPage"]').val({$numPerPage}); 
+	//列表页
+	var my_pagerForm = $("form[rel=pagerForm]");
+	if(my_pagerForm.html() != null) $.each(my_pagerForm.serializeArray(),function(i,n){
+		my_pagerForm.find('[name="'+n.name+'"]').blur(function(){
+			my_pageForm.find('[name="'+n.name+'"]').val(my_pagerForm.find('[name="'+n.name+'"]').val());
+		}).change(function(){
+			my_pageForm.find('[name="'+n.name+'"]').val(my_pagerForm.find('select[name="'+n.name+'"]').val());
+		});
+	}); 
+});
+</script>

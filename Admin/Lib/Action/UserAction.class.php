@@ -3,11 +3,19 @@
 class UserAction extends CommonAction {
 	function _filter(&$map){
 		  $map['id'] = array('egt',2);
-		$map['account'] = array('like',"%".$_POST['account']."%");
+		$map['account'] = array('like',"%".$_REQUEST['account']."%");
+	}
+	
+	public function _before_index(){
+		//读取系统的角色列表
+		$role    =   D("Role");
+		$list2=$role->field('id,name,pid,status')->select();
+		//模板赋值显示
+		$this->assign ( 'role', $list2 );
 	}
 	// 检查帐号
 	public function checkAccount() {
-        if(!preg_match('/^[a-z]\w{4,}$/i',$_POST['account'])) {
+        if(!preg_match('/^[a-z]\w{4,}$/i',$_REQUEST['account'])) {
             $this->error( '用户名必须是字母，且5位以上！');
         }
 		$User = M("User");

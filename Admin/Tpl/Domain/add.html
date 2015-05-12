@@ -1,0 +1,43 @@
+<div class="pageContent">
+
+	<form method="post" action="__URL__/insert/navTabId/__MODULE__?callbackType=closeCurrent" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxMenu)">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>域名：</label>
+				<input type="text" class="required"  name="Name">
+			</div>
+			
+			<div class="unit">
+				<label>用户名：</label>
+				<input type="text" class="required" value="administrator"  name="Account">
+			</div>
+			<div class="unit">
+				<label>密码：</label>
+				<input type="password" class=""   name="Password">
+			</div>
+			<div class="unit">
+				<label>自动登录到桌面：</label>
+				<SELECT name="AutoLogin">
+					<option value="0">否</option>
+					<option value="1">是</option>
+				</SELECT>
+			</div>
+			<div class="unit">
+				<label>自动更新计算机密码：</label>
+				<SELECT name="AutoUpgrade">
+					<option value="0">否</option>
+					<option value="1">是</option>
+				</SELECT>
+			</div>
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+
+</div>
+

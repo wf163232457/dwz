@@ -3,12 +3,19 @@
 <div class="pageHeader">
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="__URL__" method="post">
 	<div class="searchBar">
-		<ul class="searchContent">
+		<table class="searchContent">
+			<tr>
+				<td>
+					组名：<input type="text" name="name" value="{$_REQUEST.name}" />
+				</td>
+			</tr>
+		</table>
+		<!-- <ul class="searchContent">
 			<li>
 				<label>组名：</label>
 				<input type="text" name="name" />
 			</li>
-		</ul>
+		</ul> -->
 		<div class="subBar">
 			<ul>
 				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
@@ -22,7 +29,8 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" href="__URL__/add" target="dialog" mask="true"><span>新增</span></a></li>
-			<li><a class="delete" href="__URL__/foreverdelete/id/{sid_role}/navTabId/__MODULE__" target="ajaxTodo" title="你确定要删除吗？" warn="请选择角色"><span>删除</span></a></li>
+			<li><a class="delete" href="__URL__/foreverdelete/id/{sid_role}/navTabId/__MODULE__" callback="forward" target="ajaxTodo" title="你确定要删除吗？" warn="请选择角色"><span>删除</span></a></li>
+			<!-- <li><a class="delete" href="__URL__/foreverdelete/navTabId/__MODULE__" target="selectedTodo" rel="ids" title="你确定要删除吗？" warn="请至少选择一项选择角色"><span>批量删除</span></a></li> -->
 			<li><a class="edit" href="__URL__/edit/id/{sid_role}" target="dialog" mask="true" warn="请选择角色"><span>编辑</span></a></li>
 		</ul>
 	</div>
@@ -30,6 +38,7 @@
 	<table class="table" width="100%" layoutH="138">
 		<thead>
 		<tr>
+			<!-- <th width="22"><input type="checkbox" group="ids" class="checkboxCtrl"></th> -->
 			<th width="60">编号</th>
 			<th width="120" orderField="name" <if condition="$_REQUEST._order eq 'name'">class="{$_REQUEST._sort}"</if>>组名</th>
 			<th width="120">上级组</th>
@@ -41,22 +50,22 @@
 		<tbody>
 		<volist id="vo" name="list">
 			<tr target="sid_role" rel="{$vo['id']}">
+				<!-- <td><input name="ids" value="{$vo['id']}" type="checkbox"></td> -->
 				<td>{$vo['id']}</td>
 				<td>{$vo['name']}</td>
 				<td>{$vo['pid']|getGroupName}</td>
 				<td>{$vo['status']|getStatus}</td>
 				<td>{$vo['remark']}</td>
-				<td>{$vo['status']|showStatus=$vo['id']} <a href="__URL__/app/groupId/{$vo['id']}" target="dialog" mask="true" title="{$vo['name']} 授权 ">授权 </a> <a href="__URL__/user/id/{$vo['id']}" target="dialog" mask="true" title="{$vo['name']} 用户列表 ">用户列表</a></td>
+				<td>{$vo['status']|showStatus=$vo['id']}
+					<a title="{$vo['name']} 权限" target="dialog" mask="true" href="__URL__/app/groupId/{$vo['id']}">权限 </a>
+					<!-- <a title="{$vo['name']} 删除" target="ajaxTodo" href="__URL__/foreverdelete/id/{$vo['id']}/navTabId/__MODULE__" class="btnDel" title="你确定要删除吗？">删除</a>
+					<a title="{$vo['name']} 编辑" target="dialog" mask="true" href="__URL__/edit/id/{$vo['id']}" class="btnEdit">编辑</a> -->
+					<!--  <a href="__URL__/user/id/{$vo['id']}" target="dialog" mask="true" title="{$vo['name']} 用户列表 ">用户列表</a> --></td>
 			</tr>
 		</volist>
 		</tbody>
 	</table>
-	<div class="panelBar">
-		<div class="pages">
-			<span>共{$totalCount}条</span>
-		</div>
-		<div class="pagination" targetType="navTab" totalCount="{$totalCount}" numPerPage="{$numPerPage}" pageNumShown="10" currentPage="{$currentPage}"></div>
-	</div>
+	<include file="Public:page" />
 
 </div>
 

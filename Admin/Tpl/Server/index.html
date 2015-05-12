@@ -1,0 +1,109 @@
+<style>.pageContent p{width:100%;}.pageContent label{width:240px;}</style>
+
+<div class="pageContent">
+	<form method="post" action="__URL__/update/navTabId/__MODULE__?callbackType=forward" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>没有回应自动断线时间（秒）：</label>
+				<input name="UnreponseAutoDisconnectTime" class="required" type="text" value="{$setting.UnreponseAutoDisconnectTime}"/>
+			</p>
+			<p>
+				<label>IP获取响应延时（毫秒）：</label>
+				<input name="GetIPTimeDelay" class="required" type="text" value="{$setting.GetIPTimeDelay}"/>
+			</p>
+			<p>
+				<label>用户端最大读取扇区数：</label>
+				<input name="ReadMaxSection" class="required" type="text" value="{$setting.ReadMaxSection}"/>		
+			</p>
+			<p>
+				<label>用户端最大写入扇区数：</label>
+				<input name="WriteMaxSection" class="required" type="text" value="{$setting.WriteMaxSection}"/>
+			</p>
+			<p>
+				<label>用户端最大超时重发值（1/10000秒）：</label>
+				<input name="ResendMaxTimeout" class="required" type="text" value="{$setting.ResendMaxTimeout}"/>
+			</p>
+			<p>
+				<label>注销时自动清理节点：</label>
+				<select name="QuitAutoClear" class="required combox">
+					<option value="0" <eq name="setting.QuitAutoClear" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.QuitAutoClear" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>硬盘缓存大小(MB)：</label>
+				<input name="DiskCacheSize" class="required" type="text" value="{$setting.DiskCacheSize}"/>
+			</p>
+			<p>
+				<label>网络协议：</label>
+				<select name="NetworkingProtocol" class="required combox">
+					<option value="UDP" <eq name="setting.NetworkingProtocol" value="UDP">selected</eq>>UDP</option>
+					<option value="EDSC" <eq name="setting.NetworkingProtocol" value="EDSC">selected</eq>>EDSC</option>
+				</select>
+			</p>
+			<p>
+				<label>服务器名称：</label>
+				<input name="ServerName" class="" type="text" value="{$setting.ServerName}"/>
+			</p>
+			<p>
+				<label>禁用计算机重连功能：</label>
+				<select name="ReconnectionForbidden" class="required combox">
+					<option value="0" <eq name="setting.ReconnectionForbidden" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.ReconnectionForbidden" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>客户端不能离线运行：</label>
+				<select name="OfflineRunningForbidden" class="required combox">
+					<option value="0" <eq name="setting.OfflineRunningForbidden" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.OfflineRunningForbidden" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>自动回写群集文件：</label>
+				<select name="AutoWriteBackImage" class="required combox">
+					<option value="0" <eq name="setting.AutoWriteBackImage" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.AutoWriteBackImage" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>客户端最大使用内存缓存容量(MB)：</label>
+				<input name="ClientMaxCacheSize" class="required" type="text" value="{$setting.ClientMaxCacheSize}"/>
+			</p>
+			<p>
+				<label>客户端无操作自动关机(分钟)：</label>
+				<input name="ClientNoActiveAutoClose" class="required" type="text" value="{$setting.ClientNoActiveAutoClose}"/>
+			</p>
+			<p>
+				<label>自动切换虚拟盘启动：</label>
+				<select name="AutoChangeVirtualDiskStart" class="required combox">
+					<option value="0" <eq name="setting.AutoChangeVirtualDiskStart" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.AutoChangeVirtualDiskStart" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>本地缓存需经管理员确认：</label>
+				<select name="LocalCacheAllowByAdmin" class="required combox">
+					<option value="0" <eq name="setting.LocalCacheAllowByAdmin" value="0">selected</eq>>否</option>
+					<option value="1" <eq name="setting.LocalCacheAllowByAdmin" value="1">selected</eq>>是</option>
+				</select>
+			</p>
+			<p>
+				<label>客户端NIC接受模式：</label>
+				<select name="ClientNICReceiveMode" class="required combox">
+					<option value="Interrupt" <eq name="setting.ClientNICReceiveMode" value="Interrupt">selected</eq>>Interrupt</option>
+					<option value="Poll" <eq name="setting.ClientNICReceiveMode" value="Poll">selected</eq>>Poll</option>
+				</select>
+			</p>
+		</div>
+		<div class="formBar">
+			<ul>
+				<!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

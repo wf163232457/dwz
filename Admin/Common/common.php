@@ -119,7 +119,52 @@ function get_patent($patent) {
 		return "<span style='color:red'>有</span>";
 }
 
-
+function getPasswordStar($str){
+	return str_repeat('*',strlen($str));
+}
+function getScheduleService($patent){
+	if ($patent == 0)
+		return "window 服务";
+	else
+		return "是";
+}
+function getYesOrNo($patent){
+	if ($patent == 0)
+		return "否";
+	else
+		return "是";
+}
+function getScheduleTurnOn($patent){
+	switch ($patent) {
+		case 0 :
+			$show = '手动选择';
+			break;
+		case 1 :
+			$show = '一次';
+			break;
+		case 2 :
+			$show = '每次';
+			break;
+	}
+	return $show;
+}
+function getScheduleFunction($patent){
+	switch ($patent) {
+		case 0 :
+			$show = '节点缓存全载';
+			break;
+		case 1 :
+			$show = '系统盘拷贝';
+			break;
+		case 2 :
+			$show = '客户端远程指令';
+			break;
+		case 3 :
+			$show = '组播拷贝全部缓存';
+			break;
+	}
+	return $show;
+}
 function getNodeGroupName($id) {
 	if (empty ( $id )) {
 		return '未分组';

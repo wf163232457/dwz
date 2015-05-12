@@ -3,19 +3,12 @@
 <div class="pageHeader">
 	<form onsubmit="return navTabSearch(this);" action="__URL__" method="post">
 	<div class="searchBar">
-		<table class="searchContent">
-			<tr>
-				<td>
-					名称：<input type="text" name="name" value="{$_REQUEST.name}" class="medium" />
-				</td>
-			</tr>
-		</table>
-		<!-- <ul class="searchContent">
+		<ul class="searchContent">
 			<li>
 				<label>名称：</label>
 				<input type="text" name="name" class="medium" >
 			</li>
-		</ul> -->
+		</ul>
 		<div class="subBar">
 			<ul>
 				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
@@ -39,11 +32,10 @@
 		<thead>
 		<tr>
 			<th width="60">编号</th>
-			<th width="100">名称</th>
-			<th>显示名</th>
-			<th width="100">分组</th>
-			<th width="80">序号</th>
-			<th width="100">状态</th>
+			<th>计划名称</th>
+			<th width="100">启用</th>
+			<th width="100">功能</th>
+			<th width="80">开机唤醒</th>
 			<th width="100">操作</th>
 		</tr>
 		</thead>
@@ -51,8 +43,8 @@
 		<volist id="vo" name="list">
 			<tr target="sid_node" rel="{$vo['id']}">
 				<td>{$vo['id']}</td>
-				<td><a href="__URL__/index/pid/{$vo['id']}/" target="navTab" rel="__MODULE__">{$vo['name']}</a></td>
-				<td>{$vo['title']}</td>
+				<td><a href="__URL__/index/pid/{$vo['id']}/" target="navTab" rel="__MODULE__">{$vo['Name']}</a></td>
+				<td>{$vo['TurnOn']|getScheduleTurnOn}</td>
 				<td>{$vo['group_id']|getNodeGroupName}</td>
 				<td>{$vo['sort']}</td>
 				<td>{$vo['status']|getStatus}</td>

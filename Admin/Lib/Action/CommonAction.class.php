@@ -129,8 +129,8 @@ class CommonAction extends Action {
 		if ($count > 0) {
 			import ( "@.ORG.Util.Page" );
 			//创建分页对象
-			if (! empty ( $_REQUEST ['listRows'] )) {
-				$listRows = $_REQUEST ['listRows'];
+			if (! empty ( $_REQUEST ['numPerPage'] )) {
+				$listRows = $_REQUEST ['numPerPage'];
 			} else {
 				$listRows = '';
 			}
